@@ -14,14 +14,17 @@ const Dashboard: React.FC = () => {
   // Calculate stats
   const activeCards = cards.filter(card => !card.isLocked).length;
   const suspiciousTransactions = transactions.filter(tx => tx.isFlagged).length;
-  const totalSpent = transactions
+  
+  // Convert to Rands - assuming a conversion rate
+  const totalSpent = (transactions
     .filter(tx => tx.status === "completed")
-    .reduce((sum, tx) => sum + tx.amount, 0)
+    .reduce((sum, tx) => sum + tx.amount, 0) * 18.5) // Converting to Rands
     .toFixed(2);
+    
   const highSeverityAlerts = alerts.filter(alert => alert.severity === "high").length;
 
   return (
-    <MainLayout title="Dashboard">
+    <MainLayout>
       <div className="space-y-5">
         {/* Stats */}
         <div className="grid grid-cols-2 gap-3">
@@ -40,7 +43,7 @@ const Dashboard: React.FC = () => {
           />
           <StatCard 
             title="Spent" 
-            value={`$${totalSpent}`}
+            value={`R${totalSpent}`}
             icon={ShoppingBag}
             iconColor="text-green-600"
           />

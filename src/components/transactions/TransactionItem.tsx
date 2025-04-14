@@ -1,59 +1,58 @@
 
 import React from "react";
-import { format } from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 import { Transaction } from "@/types";
-import { AlertTriangle, ShoppingBag, Coffee, Package, Zap, CreditCard } from "lucide-react";
+import { AlertTriangle, CheckCircle, Shield } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 
 interface TransactionItemProps {
   transaction: Transaction;
 }
 
-const getCategoryIcon = (category: string) => {
-  switch (category) {
-    case "Food & Drink":
-      return <Coffee className="h-5 w-5 text-orange-500" />;
-    case "Shopping":
-      return <ShoppingBag className="h-5 w-5 text-blue-500" />;
-    case "Electronics":
-      return <Zap className="h-5 w-5 text-yellow-500" />;
-    default:
-      return <Package className="h-5 w-5 text-gray-500" />;
-  }
-};
-
 const TransactionItem: React.FC<TransactionItemProps> = ({ transaction }) => {
-  const formattedDate = format(new Date(transaction.date), "MMM d, yyyy h:mm a");
+  const { merchant, amount, date, status, isFlagged } = transaction;
+  
+  // Format date
+  const formattedDate = formatDistanceToNow(new Date(date), { addSuffix: true });
+  
+  // Convert to Rands
+  const amountInRands = (amount * 18.5).toFixed(2);
+  
+  // Status icon
+  const StatusIcon = status === "completed" ? CheckCircle : 
+                    status === "pending" ? Shield : AlertTriangle;
   
   return (
-    <div className={`
-      py-4 px-5 border-b flex items-center justify-between
-      ${transaction.isFlagged ? "bg-red-50" : "bg-white"}
-    `}>
-      <div className="flex items-center space-x-4">
-        <div className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center">
-          {getCategoryIcon(transaction.category)}
-        </div>
-        <div>
-          <p className="font-medium text-gray-900">{transaction.merchant}</p>
-          <p className="text-sm text-gray-500">{formattedDate}</p>
-        </div>
-      </div>
-      <div className="flex items-center">
-        <p className={`font-medium text-right ${
-          transaction.status === "declined" ? "text-red-600" : "text-gray-900"
-        }`}>
-          ${transaction.amount.toFixed(2)}
-        </p>
-        {transaction.isFlagged && (
-          <div className="ml-3">
-            <AlertTriangle className="h-5 w-5 text-intellilock-red" />
+    <div className="p-3 hover:bg-gray-50">
+      <div className="flex justify-between items-center">
+        <div className="flex flex-col">
+          <div className="flex items-center">
+            <span className="font-medium">{merchant}</span>
+            {isFlagged && (
+              <Badge variant="destructive" className="ml-2 text-xs">Suspicious</Badge>
+            )}
           </div>
-        )}
-        {transaction.status === "declined" && (
-          <div className="ml-3">
-            <CreditCard className="h-5 w-5 text-red-600" />
-          </div>
-        )}
+          <span className="text-sm text-gray-500">{formattedDate}</span>
+        </div>
+        <div className="flex items-center">
+          <span 
+            className={cn(
+              "font-semibold mr-2",
+              status === "completed" ? "text-green-600" : 
+              status === "pending" ? "text-amber-500" : "text-red-500"
+            )}
+          >
+            R{amountInRands}
+          </span>
+          <StatusIcon 
+            className={cn(
+              "h-4 w-4",
+              status === "completed" ? "text-green-600" : 
+              status === "pending" ? "text-amber-500" : "text-red-500"
+            )} 
+          />
+        </div>
       </div>
     </div>
   );

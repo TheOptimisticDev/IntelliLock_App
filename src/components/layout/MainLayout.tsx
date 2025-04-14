@@ -5,6 +5,7 @@ import { Bell, Home, CreditCard, ShoppingBag, Settings } from "lucide-react";
 import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { useApp } from "@/context/AppContext";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -14,7 +15,7 @@ interface MainLayoutProps {
 const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { unreadAlertsCount } = useApp();
+  const { unreadAlertsCount, user } = useApp();
   
   const navigation = [
     { name: "Home", path: "/dashboard", icon: Home },
@@ -25,11 +26,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      {/* App Bar */}
-      <header className="bg-white shadow fixed top-0 left-0 right-0 z-10">
+      {/* Transparent App Bar */}
+      <header className="bg-transparent fixed top-0 left-0 right-0 z-10">
         <div className="px-4 h-14 flex items-center justify-between">
           <div className="flex items-center">
-            <Logo className="scale-90" />
+            <Logo className="scale-90" compact={true} />
           </div>
           <div className="flex items-center">
             <div className="relative">
@@ -45,18 +46,32 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
           </div>
         </div>
         {title && (
-          <div className="px-4 py-2 border-b">
+          <div className="px-4 py-2">
             <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
           </div>
         )}
       </header>
 
-      {/* Main content */}
-      <main className="flex-grow pt-14 pb-16 overflow-auto">
+      {/* Welcome message for user */}
+      <div className="pt-16 px-4 pb-2">
+        {user && (
+          <div className="mb-2">
+            <p className="text-lg text-intellilock-blue">
+              Welcome, {user.name}
+            </p>
+            <p className="text-sm text-gray-600">
+              Your account is protected
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Main content - scrollable */}
+      <ScrollArea className="flex-grow pb-16 h-[calc(100vh-8rem)]">
         <div className="px-4 py-4">
           {children}
         </div>
-      </main>
+      </ScrollArea>
 
       {/* Bottom Navigation */}
       <nav className="bg-white shadow fixed bottom-0 left-0 right-0 h-16 border-t z-10">

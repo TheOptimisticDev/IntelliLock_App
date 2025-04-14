@@ -18,7 +18,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <AppProvider>
       <TooltipProvider>
-        <div className="max-w-md mx-auto h-screen overflow-hidden">
+        <div className="max-w-md mx-auto h-[100vh] overflow-hidden">
           <Toaster />
           <Sonner position="top-center" />
           <BrowserRouter>
