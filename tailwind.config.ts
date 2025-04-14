@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// IntelliLock colors
+				intellilock: {
+					blue: '#0033AA',
+					skyblue: '#0EA5E9',
+					red: '#FF4444',
+					lightgray: '#F1F1F1',
+					darkgray: '#222222'
 				}
 			},
 			borderRadius: {
@@ -84,11 +93,22 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-alert': {
+					'0%, 100%': { 
+						opacity: '1',
+						transform: 'scale(1)'
+					},
+					'50%': { 
+						opacity: '0.85',
+						transform: 'scale(1.05)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-alert': 'pulse-alert 2s infinite'
 			}
 		}
 	},
