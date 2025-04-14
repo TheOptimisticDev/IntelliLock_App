@@ -9,6 +9,7 @@ interface StatCardProps {
   icon: LucideIcon;
   iconColor?: string;
   trend?: "up" | "down" | "neutral";
+  highlight?: boolean;
 }
 
 const StatCard: React.FC<StatCardProps> = ({
@@ -16,16 +17,24 @@ const StatCard: React.FC<StatCardProps> = ({
   value,
   icon: Icon,
   iconColor = "text-intellilock-blue",
-  trend = "neutral"
+  trend = "neutral",
+  highlight = false
 }) => {
   return (
-    <div className="bg-white p-4 rounded-xl shadow-sm">
+    <div className={cn(
+      "bg-white p-4 rounded-xl shadow-sm transition-all", 
+      highlight && "border-l-4 border-intellilock-red"
+    )}>
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs font-medium text-gray-500">{title}</p>
-          <p className="text-xl font-bold">{value}</p>
+          <p className={cn("text-xl font-bold", highlight && "text-intellilock-red")}>{value}</p>
         </div>
-        <div className={cn("p-2 rounded-full bg-gray-50", iconColor.replace("text-", "bg-").replace("intellilock-blue", "blue-50").replace("intellilock-red", "red-50").replace("green-600", "green-50"))}>
+        <div className={cn(
+          "p-2 rounded-full", 
+          iconColor.replace("text-", "bg-").replace("intellilock-blue", "blue-50").replace("intellilock-red", "red-50").replace("green-600", "green-50"),
+          highlight && "animate-pulse"
+        )}>
           <Icon className={cn("w-5 h-5", iconColor)} />
         </div>
       </div>

@@ -22,6 +22,8 @@ const Dashboard: React.FC = () => {
     .toFixed(2);
     
   const highSeverityAlerts = alerts.filter(alert => alert.severity === "high").length;
+  const hasNewAlerts = alerts.some(alert => !alert.read);
+  const hasSuspiciousActivity = suspiciousTransactions > 0;
 
   return (
     <MainLayout>
@@ -39,7 +41,8 @@ const Dashboard: React.FC = () => {
             value={suspiciousTransactions}
             icon={AlertTriangle}
             iconColor="text-intellilock-red"
-            trend={suspiciousTransactions > 0 ? "up" : "neutral"}
+            trend={hasSuspiciousActivity ? "up" : "neutral"}
+            highlight={hasSuspiciousActivity}
           />
           <StatCard 
             title="Spent" 
@@ -52,6 +55,7 @@ const Dashboard: React.FC = () => {
             value={highSeverityAlerts}
             icon={Shield}
             iconColor="text-intellilock-blue"
+            highlight={hasNewAlerts}
           />
         </div>
         

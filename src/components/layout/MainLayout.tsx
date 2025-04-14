@@ -33,7 +33,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
           <div className="flex items-center">
             <div className="relative">
               <Button variant="ghost" size="icon" className="relative">
-                <Bell className="h-5 w-5" />
+                <Bell className="h-6 w-6" />
                 {unreadAlertsCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-intellilock-red text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                     {unreadAlertsCount}
@@ -67,13 +67,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
       {/* Main content - scrollable with full height viewport */}
       <ScrollArea className="flex-grow pb-16 h-[calc(100vh-4rem)]">
         <div className="px-4 py-4 pt-16">
-          {!isHomePage && user && (
-            <div className="mb-4">
-              <p className="text-lg text-intellilock-blue">
-                Hello, {user.name}
-              </p>
-            </div>
-          )}
           {children}
         </div>
       </ScrollArea>
