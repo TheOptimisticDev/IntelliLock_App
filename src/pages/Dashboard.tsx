@@ -15,10 +15,10 @@ const Dashboard: React.FC = () => {
   const activeCards = cards.filter(card => !card.isLocked).length;
   const suspiciousTransactions = transactions.filter(tx => tx.isFlagged).length;
   
-  // Convert to Rands - assuming a conversion rate
-  const totalSpent = (transactions
+  // Already in Rands
+  const totalSpent = transactions
     .filter(tx => tx.status === "completed")
-    .reduce((sum, tx) => sum + tx.amount, 0) * 18.5) // Converting to Rands
+    .reduce((sum, tx) => sum + tx.amount, 0)
     .toFixed(2);
     
   const highSeverityAlerts = alerts.filter(alert => alert.severity === "high").length;

@@ -9,7 +9,7 @@ const CardsList: React.FC = () => {
   const { cards } = useApp();
 
   return (
-    <Card>
+    <Card className="border-none shadow-sm bg-white rounded-xl overflow-hidden mb-6">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle className="text-base font-medium">Your Cards</CardTitle>
         <CreditCard className="h-5 w-5 text-intellilock-blue" />

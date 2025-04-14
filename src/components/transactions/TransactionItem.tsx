@@ -16,15 +16,15 @@ const TransactionItem: React.FC<TransactionItemProps> = ({ transaction }) => {
   // Format date
   const formattedDate = formatDistanceToNow(new Date(date), { addSuffix: true });
   
-  // Convert to Rands
-  const amountInRands = (amount * 18.5).toFixed(2);
+  // Amount in Rands (not converting since we're assuming it's already in Rands)
+  const amountInRands = amount.toFixed(2);
   
   // Status icon
   const StatusIcon = status === "completed" ? CheckCircle : 
                     status === "pending" ? Shield : AlertTriangle;
   
   return (
-    <div className="p-3 hover:bg-gray-50">
+    <div className="p-3 hover:bg-gray-50 rounded-lg transition-colors">
       <div className="flex justify-between items-center">
         <div className="flex flex-col">
           <div className="flex items-center">

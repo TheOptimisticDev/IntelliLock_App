@@ -2,7 +2,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Bell, Home, CreditCard, ShoppingBag, Settings } from "lucide-react";
-import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { useApp } from "@/context/AppContext";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -17,6 +16,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
   const navigate = useNavigate();
   const { unreadAlertsCount, user } = useApp();
   
+  const isHomePage = location.pathname === "/dashboard";
+  
   const navigation = [
     { name: "Home", path: "/dashboard", icon: Home },
     { name: "Cards", path: "/transactions", icon: CreditCard },
@@ -26,12 +27,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      {/* Transparent App Bar */}
+      {/* Completely Transparent App Bar */}
       <header className="bg-transparent fixed top-0 left-0 right-0 z-10">
-        <div className="px-4 h-14 flex items-center justify-between">
-          <div className="flex items-center">
-            <Logo className="scale-90" compact={true} />
-          </div>
+        <div className="px-4 h-14 flex items-center justify-end">
           <div className="flex items-center">
             <div className="relative">
               <Button variant="ghost" size="icon" className="relative">
@@ -52,23 +50,30 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
         )}
       </header>
 
-      {/* Welcome message for user */}
-      <div className="pt-16 px-4 pb-2">
-        {user && (
+      {/* Welcome message for user - only on home page */}
+      {isHomePage && user && (
+        <div className="pt-16 px-4 pb-2">
           <div className="mb-2">
-            <p className="text-lg text-intellilock-blue">
+            <p className="text-2xl font-bold text-intellilock-blue">
               Welcome, {user.name}
             </p>
             <p className="text-sm text-gray-600">
               Your account is protected
             </p>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
-      {/* Main content - scrollable */}
-      <ScrollArea className="flex-grow pb-16 h-[calc(100vh-8rem)]">
-        <div className="px-4 py-4">
+      {/* Main content - scrollable with full height viewport */}
+      <ScrollArea className="flex-grow pb-16 h-[calc(100vh-4rem)]">
+        <div className="px-4 py-4 pt-16">
+          {!isHomePage && user && (
+            <div className="mb-4">
+              <p className="text-lg text-intellilock-blue">
+                Hello, {user.name}
+              </p>
+            </div>
+          )}
           {children}
         </div>
       </ScrollArea>

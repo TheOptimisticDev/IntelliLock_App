@@ -6,7 +6,7 @@ export const mockUser: User = {
   id: "user123",
   name: "Alex Johnson",
   email: "alex@example.com",
-  phone: "+1 (555) 123-4567",
+  phone: "+27 73 123 4567",
   biometricEnabled: true
 };
 
@@ -36,7 +36,7 @@ export const mockTransactions: Transaction[] = [
     id: "tx1",
     cardId: "card1",
     amount: 35.99,
-    merchant: "Starbucks",
+    merchant: "Woolworths",
     date: "2025-04-14T09:30:00",
     category: "Food & Drink",
     isFlagged: false,
@@ -46,7 +46,7 @@ export const mockTransactions: Transaction[] = [
     id: "tx2",
     cardId: "card1",
     amount: 122.47,
-    merchant: "Amazon",
+    merchant: "Takealot",
     date: "2025-04-13T15:20:00",
     category: "Shopping",
     isFlagged: false,
@@ -56,7 +56,7 @@ export const mockTransactions: Transaction[] = [
     id: "tx3",
     cardId: "card1",
     amount: 499.99,
-    merchant: "Electronics Store",
+    merchant: "Game",
     date: "2025-04-12T02:15:00",
     category: "Electronics",
     isFlagged: true,
@@ -76,7 +76,7 @@ export const mockTransactions: Transaction[] = [
     id: "tx5",
     cardId: "card1",
     amount: 25.50,
-    merchant: "Local Restaurant",
+    merchant: "Steers",
     date: "2025-04-10T19:30:00",
     category: "Food & Drink",
     isFlagged: false,
@@ -88,26 +88,50 @@ export const mockTransactions: Transaction[] = [
 export const mockMerchants: Merchant[] = [
   {
     id: "merch1",
-    name: "Starbucks",
+    name: "Woolworths",
     category: "Food & Drink",
     isTrusted: true
   },
   {
     id: "merch2",
-    name: "Amazon",
+    name: "Takealot",
     category: "Shopping",
     isTrusted: true
   },
   {
     id: "merch3",
-    name: "Electronics Store",
+    name: "Game",
     category: "Electronics",
     isTrusted: false
   },
   {
     id: "merch4",
-    name: "Local Restaurant",
+    name: "Steers",
     category: "Food & Drink",
+    isTrusted: true
+  },
+  {
+    id: "merch5",
+    name: "Checkers",
+    category: "Food & Drink",
+    isTrusted: true
+  },
+  {
+    id: "merch6",
+    name: "Pick n Pay",
+    category: "Food & Drink",
+    isTrusted: true
+  },
+  {
+    id: "merch7",
+    name: "Clicks",
+    category: "Health & Beauty",
+    isTrusted: true
+  },
+  {
+    id: "merch8",
+    name: "Dis-Chem",
+    category: "Health & Beauty",
     isTrusted: true
   }
 ];
@@ -117,7 +141,7 @@ export const mockAlerts: Alert[] = [
   {
     id: "alert1",
     title: "Suspicious Transaction Detected",
-    message: "A transaction of $499.99 at Electronics Store at 2:15 AM appears suspicious.",
+    message: "A transaction of R499.99 at Game at 2:15 AM appears suspicious.",
     date: "2025-04-12T02:17:00",
     read: false,
     severity: "high",
