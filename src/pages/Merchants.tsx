@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 const Merchants: React.FC = () => {
   const { merchants, addMerchantToTrusted } = useApp();
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [newMerchant, setNewMerchant] = useState({ name: "", category: "" });
+  const [newMerchant, setNewMerchant] = useState({ name: "", category: "", isTrusted: true });
   
   // Sort merchants alphabetically
   const sortedMerchants = [...merchants].sort((a, b) => a.name.localeCompare(b.name));
@@ -22,7 +22,7 @@ const Merchants: React.FC = () => {
   const handleAddMerchant = () => {
     if (newMerchant.name && newMerchant.category) {
       addMerchantToTrusted(newMerchant);
-      setNewMerchant({ name: "", category: "" });
+      setNewMerchant({ name: "", category: "", isTrusted: true });
       setDialogOpen(false);
     }
   };
@@ -104,7 +104,8 @@ const Merchants: React.FC = () => {
                         ? undefined 
                         : () => addMerchantToTrusted({ 
                             name: merchant.name, 
-                            category: merchant.category 
+                            category: merchant.category,
+                            isTrusted: true
                           })
                     }
                   />
