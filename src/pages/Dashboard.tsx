@@ -21,12 +21,10 @@ const Dashboard: React.FC = () => {
   const highSeverityAlerts = alerts.filter(alert => alert.severity === "high").length;
 
   return (
-    <MainLayout>
-      <div className="space-y-6">
-        <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-        
+    <MainLayout title="Dashboard">
+      <div className="space-y-5">
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 gap-3">
           <StatCard 
             title="Active Cards" 
             value={`${activeCards}/${cards.length}`}
@@ -34,20 +32,20 @@ const Dashboard: React.FC = () => {
             iconColor="text-intellilock-skyblue"
           />
           <StatCard 
-            title="Suspicious Activity" 
+            title="Suspicious" 
             value={suspiciousTransactions}
             icon={AlertTriangle}
             iconColor="text-intellilock-red"
             trend={suspiciousTransactions > 0 ? "up" : "neutral"}
           />
           <StatCard 
-            title="Total Spent" 
+            title="Spent" 
             value={`$${totalSpent}`}
             icon={ShoppingBag}
             iconColor="text-green-600"
           />
           <StatCard 
-            title="Security Alerts" 
+            title="Alerts" 
             value={highSeverityAlerts}
             icon={Shield}
             iconColor="text-intellilock-blue"
@@ -58,10 +56,8 @@ const Dashboard: React.FC = () => {
         <CardsList />
         
         {/* Recent activity */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <RecentTransactions />
-          <RecentAlerts />
-        </div>
+        <RecentTransactions />
+        <RecentAlerts />
       </div>
     </MainLayout>
   );

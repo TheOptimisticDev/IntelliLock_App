@@ -1,12 +1,14 @@
 
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CreditCard } from "lucide-react";
+import { CreditCard, ChevronRight } from "lucide-react";
 import { useApp } from "@/context/AppContext";
+import { useNavigate } from "react-router-dom";
 import TransactionItem from "@/components/transactions/TransactionItem";
 
 const RecentTransactions: React.FC = () => {
   const { transactions } = useApp();
+  const navigate = useNavigate();
   
   // Sort transactions by date (newest first) and take the first 3
   const recentTransactions = [...transactions]
@@ -16,8 +18,13 @@ const RecentTransactions: React.FC = () => {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-lg font-medium">Recent Transactions</CardTitle>
-        <CreditCard className="h-5 w-5 text-intellilock-blue" />
+        <CardTitle className="text-base font-medium">Recent Transactions</CardTitle>
+        <button 
+          onClick={() => navigate('/transactions')}
+          className="text-sm text-intellilock-blue flex items-center"
+        >
+          View All <ChevronRight className="h-4 w-4" />
+        </button>
       </CardHeader>
       <CardContent className="p-0">
         {recentTransactions.length > 0 ? (

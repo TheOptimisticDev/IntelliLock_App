@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bell } from "lucide-react";
+import { Bell, ChevronRight } from "lucide-react";
 import { useApp } from "@/context/AppContext";
 import AlertItem from "@/components/alerts/AlertItem";
 
@@ -16,8 +16,12 @@ const RecentAlerts: React.FC = () => {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-lg font-medium">Recent Alerts</CardTitle>
-        <Bell className="h-5 w-5 text-intellilock-blue" />
+        <CardTitle className="text-base font-medium">Recent Alerts</CardTitle>
+        <button 
+          className="text-sm text-intellilock-blue flex items-center"
+        >
+          View All <ChevronRight className="h-4 w-4" />
+        </button>
       </CardHeader>
       <CardContent className="p-0">
         {recentAlerts.length > 0 ? (

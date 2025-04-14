@@ -11,11 +11,11 @@ const CardsList: React.FC = () => {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-lg font-medium">Your Cards</CardTitle>
+        <CardTitle className="text-base font-medium">Your Cards</CardTitle>
         <CreditCard className="h-5 w-5 text-intellilock-blue" />
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           {cards.map((card) => (
             <CardItem key={card.id} card={card} />
           ))}
