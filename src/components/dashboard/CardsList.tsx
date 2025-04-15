@@ -11,11 +11,6 @@ const CardsList: React.FC = () => {
   const { cards } = useApp();
 
   const handleAddCard = () => {
-    toast({
-      title: "Feature coming soon",
-      description: "Adding new cards will be available in the next update.",
-      variant: "default",
-    });
   };
 
   return (

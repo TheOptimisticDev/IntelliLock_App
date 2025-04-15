@@ -21,7 +21,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
   const navigation = [
     { name: "Home", path: "/dashboard", icon: Home },
     { name: "Cards", path: "/transactions", icon: CreditCard },
-    { name: "Merchants", path: "/merchants", icon: ShoppingBag },
+    { name: "Outlets", path: "/merchants", icon: ShoppingBag },
     { name: "Settings", path: "/settings", icon: Settings }
   ];
 

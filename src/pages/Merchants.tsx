@@ -15,7 +15,7 @@ const Merchants: React.FC = () => {
   const { merchants, addMerchantToTrusted } = useApp();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [newMerchant, setNewMerchant] = useState({ name: "", category: "", isTrusted: true });
-  
+
   // Sort merchants alphabetically
   const sortedMerchants = [...merchants].sort((a, b) => a.name.localeCompare(b.name));
 
@@ -31,8 +31,8 @@ const Merchants: React.FC = () => {
     <MainLayout>
       <div className="space-y-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Trusted Merchants</h1>
-          
+          <h1 className="text-2xl font-bold text-gray-900">Trusted Outlets</h1>
+
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
               <Button>
@@ -40,31 +40,36 @@ const Merchants: React.FC = () => {
                 Add Merchant
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="max-w-[20rem] px-4 py-4 rounded-2xl shadow-lg">
               <DialogHeader>
-                <DialogTitle>Add Trusted Merchant</DialogTitle>
+                <DialogTitle className="text-center text-lg font-semibold">
+                  Add Merchant
+                </DialogTitle>
               </DialogHeader>
-              <div className="grid gap-4 py-2">
-                <div className="grid grid-cols-5 items-center gap-8">
-                  <Label htmlFor="name" className="text-right">
-                    Name
-                  </Label>
+
+              <div className="flex flex-col space-y-4 mt-4 text-sm text-gray-700">
+                <div className="space-y-1">
+                  <Label htmlFor="name" className="text-gray-600">Name</Label>
                   <Input
                     id="name"
                     value={newMerchant.name}
-                    onChange={(e) => setNewMerchant({ ...newMerchant, name: e.target.value })}
-                    className="col-span-3"
+                    onChange={(e) =>
+                      setNewMerchant({ ...newMerchant, name: e.target.value })
+                    }
+                    placeholder="Merchant Name"
+                    className="w-full"
                   />
                 </div>
-                <div className="grid grid-cols-5 items-center gap-8">
-                  <Label htmlFor="category" className="text-right">
-                    Category
-                  </Label>
-                  <Select 
+
+                <div className="space-y-1">
+                  <Label htmlFor="category" className="text-gray-600">Category</Label>
+                  <Select
                     value={newMerchant.category}
-                    onValueChange={(value) => setNewMerchant({ ...newMerchant, category: value })}
+                    onValueChange={(value) =>
+                      setNewMerchant({ ...newMerchant, category: value })
+                    }
                   >
-                    <SelectTrigger className="col-span-3">
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
                     <SelectContent>
@@ -77,24 +82,26 @@ const Merchants: React.FC = () => {
                     </SelectContent>
                   </Select>
                 </div>
-              </div>
-              <div className="flex justify-end">
-                <Button onClick={handleAddMerchant}>
+
+                <Button
+                  className="w-full mt-2"
+                  onClick={handleAddMerchant}
+                >
                   Add to Trusted List
                 </Button>
               </div>
             </DialogContent>
           </Dialog>
         </div>
-        
+
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-lg font-medium">Merchant List</CardTitle>
+            <CardTitle className="text-lg font-medium">Stores</CardTitle>
             <ShoppingBag className="h-5 w-5 text-intellilock-black" />
           </CardHeader>
-          <CardContent className="p-0">
+          <CardContent className="p-4">
             {sortedMerchants.length > 0 ? (
-              <div className="divide-y">
+              <div className="grid gap-4">
                 {sortedMerchants.map((merchant) => (
                   <MerchantItem 
                     key={merchant.id} 
@@ -107,13 +114,13 @@ const Merchants: React.FC = () => {
                             category: merchant.category,
                             isTrusted: true
                           })
-                    }
+                    }    
                   />
                 ))}
               </div>
             ) : (
               <div className="p-6 text-center text-gray-500">
-                <p>No merchants found</p>
+                <p>No outlets found</p>
               </div>
             )}
           </CardContent>
