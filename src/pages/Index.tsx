@@ -218,26 +218,26 @@ const Index = () => {
         Device: <span className="font-medium">{deviceInfo}</span>
       </div>
 
-      <Button
-        className="mt-2 w-full"
-        onClick={() => {
-          toast({
-            title: "Account Created",
-            description: `PIN registered (not stored). Device: ${deviceInfo}`,
-          });
-          setShowCreateModal(false);
-        }}
-        disabled={
-          !accountDetails.name ||
-          !accountDetails.email ||
-          accountDetails.pin.length !== 5
-        }
-      >
-        Submit
-      </Button>
-    </div>
-  </DialogContent>
-</Dialog>
+            <Button
+              className="mt-2 w-full"
+              onClick={() => {
+              toast({
+                title: "Account Created",
+                description: `PIN registered (not stored). Device: ${deviceInfo}`,
+              });
+              setShowCreateModal(false);
+              }}
+                disabled={
+                !accountDetails.name ||
+                !accountDetails.email ||
+                accountDetails.pin.length !== 5
+              }
+            >
+              Submit
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
 
     </div>
   );
