@@ -1,73 +1,89 @@
-# Welcome to your TheOptimisticDev project
+# IntelliLock App
 
-## Project info
+**IntelliLock** is a secure, AI-powered transaction monitoring system designed to detect fraud in real time using risk scoring and location-based verification. It provides enhanced online payment confirmation and a robust alert mechanism to notify users of suspicious activity and automatically lock cards.
 
-**URL**: https://TheOptimisticDev.dev/projects/eb416c4e-2f4f-4c5b-817b-d3e9390a9b3e
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- 🔍 **AI-Powered Fraud Detection**  
+  Detects anomalous transactions using intelligent algorithms.
 
-**Use TheOptimisticDev**
+- 📍 **Location Verification**  
+  Confirms user activity using real-time geolocation matching.
 
-Simply visit the [TheOptimisticDev Project](https://TheOptimisticDev.dev/projects/eb416c4e-2f4f-4c5b-817b-d3e9390a9b3e) and start prompting.
+- ⚖️ **Risk Scoring System**  
+  Scores transactions based on multiple factors like device, location, and behavior.
 
-Changes made via TheOptimisticDev will be committed automatically to this repo.
+- 🔐 **Secure Payment Confirmation Flow**  
+  Allows users to confirm or deny transactions before they’re finalized.
 
-**Use your preferred IDE**
+- 🛎️ **Real-Time Alert System**  
+  Triggers alerts for any suspicious or blocked activity across devices.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in TheOptimisticDev.
+- 📊 **Enhanced Transaction Processing**  
+  Improves transaction reliability and auditability.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🧱 Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Frontend:** React (TypeScript, Vite, TailwindCSS)
+- **Backend:** Node.js / Express (or third-party APIs)
+- **AI & Risk Engine:** Custom logic (can be connected to ML models)
+- **Location Services:** HTML5 Geolocation / Map APIs
+- **Notification:** Toasts, push or email integration
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 📦 Getting Started
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### 🔧 Prerequisites
+- Node.js (v18+)
+- npm or yarn
+
+### 🚀 Installation
+
+```bash
+git clone https://github.com/yourusername/intellilock_app.git
+cd intellilock_app
+npm install
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 🔐 Mock Authentication Data
+Use the following credentials to log in during development:
 
-**Use GitHub Codespaces**
+Pin: 12345
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+ℹ️ These credentials are for testing only and should not be used in production environments.
 
-## What technologies are used for this project?
+## 📁 Project Structure
 
-This project is built with:
+src/
+├── assets/                # Static assets
+├── components/            # Reusable UI components
+├── pages/                 # Page-level components
+├── services/              # Transaction & alert services
+├── mockData/              # Mock JSON & testing data
+├── App.tsx                # Main app component
+└── main.tsx               # Entry point
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🧪 Testing
 
-## How can I deploy this project?
+# Run unit tests
+npm run test
 
-Simply open [TheOptimisticDev](https://TheOptimisticDev.dev/projects/eb416c4e-2f4f-4c5b-817b-d3e9390a9b3e) and click on Share -> Publish.
+## Future Enhancements
 
-## Can I connect a custom domain to my TheOptimisticDev project?
+- Integrate with ML model for adaptive scoring
 
-Yes, you can!
+- Mobile device push notifications
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Admin dashboard for real-time monitoring
 
-Read more here: [Setting up a custom domain](https://docs.TheOptimisticDev.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Multi-factor authentication (MFA)
+
+## 📄 License
+
+MIT © [TheOptimisticDev]
