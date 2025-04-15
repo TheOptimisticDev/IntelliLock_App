@@ -5,6 +5,11 @@ export interface User {
   email: string;
   phone: string;
   biometricEnabled: boolean;
+  trustedLocations?: {
+    lat: number;
+    lng: number;
+    label: string;
+  }[];
 }
 
 export interface Card {
@@ -25,6 +30,11 @@ export interface Transaction {
   category: string;
   isFlagged: boolean;
   status: 'completed' | 'pending' | 'declined';
+  location?: {
+    lat: number;
+    lng: number;
+  };
+  isOnline?: boolean;
 }
 
 export interface Merchant {

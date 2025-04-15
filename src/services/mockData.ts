@@ -1,4 +1,3 @@
-
 import { User, Card, Transaction, Merchant, Alert } from "@/types";
 
 // Mock user data
@@ -7,7 +6,11 @@ export const mockUser: User = {
   name: "Mfumu Mabunda",
   email: "mabunda.wealth@gmail.com",
   phone: "+27 81 344 1348",
-  biometricEnabled: true
+  biometricEnabled: true,
+  trustedLocations: [
+    { lat: -26.2041, lng: 28.0473, label: "Home (Johannesburg)" }, // Johannesburg
+    { lat: -33.9249, lng: 18.4241, label: "Work (Cape Town)" }, // Cape Town
+  ]
 };
 
 // Mock cards data
@@ -40,7 +43,8 @@ export const mockTransactions: Transaction[] = [
     date: "2025-04-14T09:30:00",
     category: "Food & Drink",
     isFlagged: false,
-    status: "completed"
+    status: "completed",
+    location: { lat: -26.2041, lng: 28.0473 } // Johannesburg
   },
   {
     id: "tx2",
@@ -50,7 +54,8 @@ export const mockTransactions: Transaction[] = [
     date: "2025-04-13T15:20:00",
     category: "Shopping",
     isFlagged: false,
-    status: "completed"
+    status: "completed",
+    isOnline: true
   },
   {
     id: "tx3",
@@ -60,7 +65,8 @@ export const mockTransactions: Transaction[] = [
     date: "2025-04-12T02:15:00",
     category: "Electronics",
     isFlagged: true,
-    status: "completed"
+    status: "completed",
+    location: { lat: 51.5074, lng: -0.1278 } // London
   },
   {
     id: "tx4",
@@ -70,7 +76,8 @@ export const mockTransactions: Transaction[] = [
     date: "2025-04-11T03:45:00",
     category: "Unknown",
     isFlagged: true,
-    status: "declined"
+    status: "declined",
+    location: { lat: 40.7128, lng: -74.0060 } // New York
   },
   {
     id: "tx5",
@@ -80,7 +87,8 @@ export const mockTransactions: Transaction[] = [
     date: "2025-04-10T19:30:00",
     category: "Food & Drink",
     isFlagged: false,
-    status: "completed"
+    status: "completed",
+    location: { lat: -26.2041, lng: 28.0473 } // Johannesburg
   }
 ];
 
@@ -166,18 +174,74 @@ export const mockAlerts: Alert[] = [
   }
 ];
 
-// Mock AI service for fraud detection
-export const detectFraud = (transaction: Transaction): boolean => {
-  // Simple rules for fraud detection
+// Enhanced AI fraud detection with location verification
+export const detectFraud = (transaction: Transaction, userLocation?: { lat: number; lng: number }): boolean => {
   const time = new Date(transaction.date).getHours();
+  
+  // Risk factors
   const isLateNight = time >= 0 && time <= 5;
   const isLargeAmount = transaction.amount > 400;
-  const isUnknownMerchant = !mockMerchants.some(m => 
-    m.name === transaction.merchant && m.isTrusted
-  );
-  
-  return (isLateNight && transaction.amount > 100) || 
-         (isLargeAmount && isUnknownMerchant);
+  const isUnknownMerchant = !mockMerchants.some(m => m.name === transaction.merchant && m.isTrusted);
+  const isLocationMismatch = userLocation && !isNearTrustedLocation(userLocation);
+  const isOnlinePayment = transaction.isOnline || isOnlineMerchant(transaction.merchant);
+
+  // Calculate fraud score (0-1)
+  let fraudScore = 0;
+  if (isLateNight) fraudScore += 0.3;
+  if (isLargeAmount) fraudScore += 0.2;
+  if (isUnknownMerchant) fraudScore += 0.25;
+  if (isLocationMismatch) fraudScore += 0.5;
+  if (isOnlinePayment) fraudScore -= 0.1; // Online payments get slight reduction
+
+  return fraudScore >= 0.7;
+};
+
+// Helper function to check if current location is near trusted locations
+const isNearTrustedLocation = (location: { lat: number; lng: number }): boolean => {
+  return mockUser.trustedLocations?.some(trustedLoc => 
+    calculateDistance(location.lat, location.lng, trustedLoc.lat, trustedLoc.lng) < 50
+  ) ?? false;
+};
+
+// Haversine formula to calculate distance between coordinates
+const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
+  const R = 6371; // Earth radius in km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c;
+};
+
+// Check if merchant is typically online
+const isOnlineMerchant = (merchant: string): boolean => {
+  const onlineMerchants = ['Takealot', 'Amazon', 'Ebay', 'AliExpress'];
+  return onlineMerchants.includes(merchant) || merchant.toLowerCase().includes('online');
+};
+
+// Enhanced transaction processing
+export const processTransaction = (transaction: Transaction, userLocation?: { lat: number; lng: number }) => {
+  const isFraud = detectFraud(transaction, userLocation);
+  const isOnline = transaction.isOnline || isOnlineMerchant(transaction.merchant);
+
+  return {
+    isFraud: isFraud && !isOnline,
+    requiresConfirmation: isOnline,
+    riskScore: calculateRiskScore(transaction, userLocation)
+  };
+};
+
+// Calculate risk score (0-100)
+const calculateRiskScore = (transaction: Transaction, userLocation?: { lat: number; lng: number }): number => {
+  // Implementation similar to detectFraud but returns a score
+  return Math.min(100, Math.floor(
+    (detectFraud(transaction, userLocation) ? 70 : 0) +
+    (transaction.isOnline ? 10 : 0) +
+    (transaction.amount > 1000 ? 15 : 0)
+  ));
 };
 
 // Service to toggle card lock status
@@ -186,6 +250,19 @@ export const toggleCardLock = (cardId: string, isLocked: boolean): Card => {
   if (!card) throw new Error("Card not found");
   
   card.isLocked = isLocked;
+  
+  // Add alert when card is locked
+  if (isLocked) {
+    mockAlerts.push({
+      id: `alert-${Date.now()}`,
+      title: "Card Locked",
+      message: `Your card ending in ${card.last4} has been ${isLocked ? 'locked' : 'unlocked'}.`,
+      date: new Date().toISOString(),
+      read: false,
+      severity: isLocked ? "high" : "medium"
+    });
+  }
+  
   return { ...card };
 };
 
@@ -208,4 +285,12 @@ export const addTrustedMerchant = (merchant: Omit<Merchant, 'id'>): Merchant => 
   
   mockMerchants.push(newMerchant);
   return newMerchant;
+};
+
+// Service to add a trusted location
+export const addTrustedLocation = (location: { lat: number; lng: number; label: string }) => {
+  if (!mockUser.trustedLocations) {
+    mockUser.trustedLocations = [];
+  }
+  mockUser.trustedLocations.push(location);
 };
