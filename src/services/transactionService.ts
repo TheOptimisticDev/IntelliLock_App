@@ -18,7 +18,8 @@ export const handleTransactionAttempt = (transaction: Transaction, userLocation?
         date: new Date().toISOString(),
         read: false,
         severity: "high",
-        relatedTransactionId: transaction.id
+        relatedTransactionId: transaction.id,
+        timestamp: undefined
       });
     }
     

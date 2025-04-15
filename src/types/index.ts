@@ -45,6 +45,7 @@ export interface Merchant {
 }
 
 export interface Alert {
+  timestamp: any;
   id: string;
   title: string;
   message: string;

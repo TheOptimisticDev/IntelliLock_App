@@ -153,7 +153,8 @@ export const mockAlerts: Alert[] = [
     date: "2025-04-12T02:17:00",
     read: false,
     severity: "high",
-    relatedTransactionId: "tx3"
+    relatedTransactionId: "tx3",
+    timestamp: undefined
   },
   {
     id: "alert2",
@@ -162,7 +163,8 @@ export const mockAlerts: Alert[] = [
     date: "2025-04-11T03:46:00",
     read: true,
     severity: "high",
-    relatedTransactionId: "tx4"
+    relatedTransactionId: "tx4",
+    timestamp: undefined
   },
   {
     id: "alert3",
@@ -170,7 +172,8 @@ export const mockAlerts: Alert[] = [
     message: "A transaction was made in a new location. Please verify this was you.",
     date: "2025-04-10T19:35:00",
     read: true,
-    severity: "medium"
+    severity: "medium",
+    timestamp: undefined
   }
 ];
 
@@ -259,7 +262,8 @@ export const toggleCardLock = (cardId: string, isLocked: boolean): Card => {
       message: `Your card ending in ${card.last4} has been ${isLocked ? 'locked' : 'unlocked'}.`,
       date: new Date().toISOString(),
       read: false,
-      severity: isLocked ? "high" : "medium"
+      severity: isLocked ? "high" : "medium",
+      timestamp: undefined
     });
   }
   
