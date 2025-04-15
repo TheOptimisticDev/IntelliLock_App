@@ -36,6 +36,47 @@
 
 ---
 
+### 🔐 Mock Authentication Data
+Use the following credentials to log in during development:
+
+Pin: 12345
+
+ℹ️ These credentials are for testing only and should not be used in production environments.
+
+---
+
+## 📁 Project Structure
+
+src/
+├── assets/                # Static assets
+├── components/            # UI components
+├── pages/                 # Page-level components
+├── services/              # Transaction & alert services
+├── mockData/              # Mock JSON & testing data
+├── App.tsx                # Main app component
+└── main.tsx               # Entry point
+
+---
+
+## 🧪 Testing
+
+# Run unit tests
+npm run test
+
+---
+
+## Future Enhancements
+
+- Integrate with ML model for adaptive scoring
+
+- Mobile device push notifications
+
+- Admin dashboard for real-time monitoring
+
+- Multi-factor authentication (MFA)
+
+---
+
 ## 📦 Getting Started
 
 ### 🔧 Prerequisites
@@ -50,40 +91,4 @@ cd intellilock_app
 npm install
 npm run dev
 
-
-### 🔐 Mock Authentication Data
-Use the following credentials to log in during development:
-
-Pin: 12345
-
-ℹ️ These credentials are for testing only and should not be used in production environments.
-
-## 📁 Project Structure
-
-src/
-├── assets/                # Static assets
-├── components/            # Reusable UI components
-├── pages/                 # Page-level components
-├── services/              # Transaction & alert services
-├── mockData/              # Mock JSON & testing data
-├── App.tsx                # Main app component
-└── main.tsx               # Entry point
-
-## 🧪 Testing
-
-# Run unit tests
-npm run test
-
-## Future Enhancements
-
-- Integrate with ML model for adaptive scoring
-
-- Mobile device push notifications
-
-- Admin dashboard for real-time monitoring
-
-- Multi-factor authentication (MFA)
-
-## 📄 License
-
-MIT © [TheOptimisticDev]
+---
