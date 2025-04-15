@@ -4,9 +4,9 @@ import { User, Card, Transaction, Merchant, Alert } from "@/types";
 // Mock user data
 export const mockUser: User = {
   id: "user123",
-  name: "Alex Johnson",
-  email: "alex@example.com",
-  phone: "+27 73 123 4567",
+  name: "Mfumu Mabunda",
+  email: "mabunda.wealth@gmail.com",
+  phone: "+27 81 344 1348",
   biometricEnabled: true
 };
 
@@ -18,7 +18,7 @@ export const mockCards: Card[] = [
     cardType: "visa",
     isLocked: false,
     expiryDate: "12/27",
-    cardHolder: "Alex Johnson"
+    cardHolder: "Mfumu Mabunda"
   },
   {
     id: "card2",
@@ -26,7 +26,7 @@ export const mockCards: Card[] = [
     cardType: "mastercard",
     isLocked: true,
     expiryDate: "09/26",
-    cardHolder: "Alex Johnson"
+    cardHolder: "Mfumu Mabunda"
   }
 ];
 

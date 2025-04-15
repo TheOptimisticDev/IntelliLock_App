@@ -20,7 +20,7 @@ const Settings: React.FC = () => {
         <Card>
           <CardHeader>
             <div className="flex items-center space-x-2">
-              <ShieldAlert className="h-5 w-5 text-intellilock-blue" />
+              <ShieldAlert className="h-5 w-5 text-intellilock-black" />
               <CardTitle>Security Settings</CardTitle>
             </div>
             <CardDescription>
@@ -66,7 +66,7 @@ const Settings: React.FC = () => {
         <Card>
           <CardHeader>
             <div className="flex items-center space-x-2">
-              <BellRing className="h-5 w-5 text-intellilock-blue" />
+              <BellRing className="h-5 w-5 text-intellilock-black" />
               <CardTitle>Notification Settings</CardTitle>
             </div>
             <CardDescription>
@@ -110,7 +110,7 @@ const Settings: React.FC = () => {
         <Card>
           <CardHeader>
             <div className="flex items-center space-x-2">
-              <User className="h-5 w-5 text-intellilock-blue" />
+              <User className="h-5 w-5 text-intellilock-black" />
               <CardTitle>Account Settings</CardTitle>
             </div>
             <CardDescription>

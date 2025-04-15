@@ -35,7 +35,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
               <Button variant="ghost" size="icon" className="relative">
                 <Bell className="h-6 w-6" />
                 {unreadAlertsCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-intellilock-red text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  <span className="absolute -top-0 -right-1 bg-intellilock-red text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                     {unreadAlertsCount}
                   </span>
                 )}
@@ -43,11 +43,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
             </div>
           </div>
         </div>
-        {title && (
-          <div className="px-4 py-2">
-            <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
-          </div>
-        )}
       </header>
 
       {/* Welcome message for user - only on home page */}
@@ -55,10 +50,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
         <div className="pt-16 px-4 pb-2">
           <div className="mb-2">
             <p className="text-2xl font-bold text-intellilock-blue">
-              Welcome, {user.name}
+              Welcome Back, {user.name}
             </p>
             <p className="text-sm text-gray-600">
-              Your account is protected
+            Your cards are protected by AI-powered security
             </p>
           </div>
         </div>

@@ -23,7 +23,7 @@ const RecentTransactions: React.FC = () => {
           onClick={() => navigate('/transactions')}
           className="text-sm text-intellilock-blue flex items-center"
         >
-          View All <ChevronRight className="h-4 w-4" />
+          View All
         </button>
       </CardHeader>
       <CardContent className="p-0">

@@ -44,8 +44,8 @@ const Merchants: React.FC = () => {
               <DialogHeader>
                 <DialogTitle>Add Trusted Merchant</DialogTitle>
               </DialogHeader>
-              <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-4 items-center gap-4">
+              <div className="grid gap-4 py-2">
+                <div className="grid grid-cols-5 items-center gap-8">
                   <Label htmlFor="name" className="text-right">
                     Name
                   </Label>
@@ -56,7 +56,7 @@ const Merchants: React.FC = () => {
                     className="col-span-3"
                   />
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
+                <div className="grid grid-cols-5 items-center gap-8">
                   <Label htmlFor="category" className="text-right">
                     Category
                   </Label>
@@ -90,7 +90,7 @@ const Merchants: React.FC = () => {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-lg font-medium">Merchant List</CardTitle>
-            <ShoppingBag className="h-5 w-5 text-intellilock-blue" />
+            <ShoppingBag className="h-5 w-5 text-intellilock-black" />
           </CardHeader>
           <CardContent className="p-0">
             {sortedMerchants.length > 0 ? (

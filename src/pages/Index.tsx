@@ -67,10 +67,6 @@ const Index = () => {
       <div className="flex flex-col items-center space-y-8 w-full max-w-md">
         <Logo className="scale-150 mb-4" />
         
-        <h1 className="text-2xl font-bold text-intellilock-blue">
-          Smart Card Security
-        </h1>
-        
         <p className="text-center text-gray-600 mb-8">
           Protect your cards with AI-powered security
         </p>

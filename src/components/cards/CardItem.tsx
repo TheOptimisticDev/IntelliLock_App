@@ -53,7 +53,7 @@ const CardItem: React.FC<CardItemProps> = ({ card }) => {
         <div className="p-4 flex justify-between items-center">
           <div className="flex items-center">
             {card.isLocked ? (
-              <div className="flex items-center text-intellilock-blue">
+              <div className="flex items-center text-intellilock-red">
                 <Shield className="h-5 w-5 mr-2" />
                 <span className="font-medium">Card Locked</span>
               </div>

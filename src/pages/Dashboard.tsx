@@ -5,7 +5,7 @@ import CardsList from "@/components/dashboard/CardsList";
 import RecentTransactions from "@/components/dashboard/RecentTransactions";
 import RecentAlerts from "@/components/dashboard/RecentAlerts";
 import StatCard from "@/components/dashboard/StatCard";
-import { Shield, AlertTriangle, CreditCard, ShoppingBag } from "lucide-react";
+import { Shield, AlertTriangle, CreditCard, ShoppingBag, Bell } from "lucide-react";
 import { useApp } from "@/context/AppContext";
 
 const Dashboard: React.FC = () => {
@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
             title="Active Cards" 
             value={`${activeCards}/${cards.length}`}
             icon={CreditCard}
-            iconColor="text-intellilock-skyblue"
+            iconColor="text-intellilock-black"
           />
           <StatCard 
             title="Suspicious" 
@@ -45,16 +45,16 @@ const Dashboard: React.FC = () => {
             highlight={hasSuspiciousActivity}
           />
           <StatCard 
-            title="Spent" 
+            title="Total Spent" 
             value={`R${totalSpent}`}
             icon={ShoppingBag}
-            iconColor="text-green-600"
+            iconColor="text-black"
           />
           <StatCard 
             title="Alerts" 
             value={highSeverityAlerts}
-            icon={Shield}
-            iconColor="text-intellilock-blue"
+            icon={Bell}
+            iconColor="text-intellilock-black"
             highlight={hasNewAlerts}
           />
         </div>
