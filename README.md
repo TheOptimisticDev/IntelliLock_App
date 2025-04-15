@@ -2,7 +2,6 @@
 
 **IntelliLock** is a secure, AI-powered transaction monitoring system designed to detect fraud in real time using risk scoring and location-based verification. It provides enhanced online payment confirmation and a robust alert mechanism to notify users of suspicious activity and automatically lock cards.
 
----
 
 ## 🚀 Features
 
@@ -24,7 +23,6 @@
 - 📊 **Enhanced Transaction Processing**  
   Improves transaction reliability and auditability.
 
----
 
 ## 🧱 Tech Stack
 
@@ -34,7 +32,6 @@
 - **Location Services:** HTML5 Geolocation / Map APIs
 - **Notification:** Toasts, push or email integration
 
----
 
 ### 🔐 Mock Authentication Data
 Use the following credentials to log in during development:
@@ -43,7 +40,6 @@ Pin: 12345
 
 ℹ️ These credentials are for testing only and should not be used in production environments.
 
----
 
 ## 📁 Project Structure
 
@@ -56,14 +52,12 @@ src/
 ├── App.tsx                # Main app component
 └── main.tsx               # Entry point
 
----
 
 ## 🧪 Testing
 
 # Run unit tests
 npm run test
 
----
 
 ## Future Enhancements
 
@@ -75,7 +69,6 @@ npm run test
 
 - Multi-factor authentication (MFA)
 
----
 
 ## 📦 Getting Started
 
@@ -90,5 +83,3 @@ git clone https://github.com/yourusername/intellilock_app.git
 cd intellilock_app
 npm install
 npm run dev
-
----
