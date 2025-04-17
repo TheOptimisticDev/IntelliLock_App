@@ -45,6 +45,9 @@ export interface Merchant {
 }
 
 export interface Alert {
+  type(type: any): import("react").ReactNode;
+  description: boolean;
+  details: string;
   timestamp: any;
   id: string;
   title: string;

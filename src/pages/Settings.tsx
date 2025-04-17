@@ -1,9 +1,8 @@
-
 import React from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { useApp } from "@/context/AppContext";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Fingerprint, BellRing, CreditCard, LogOut, User, ShieldAlert } from "lucide-react";
+import { Fingerprint, BellRing, CreditCard, LogOut, User, ShieldAlert, Shield } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -13,14 +12,12 @@ const Settings: React.FC = () => {
 
   return (
     <MainLayout>
-      <div className="space-y-6">
-        <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
-        
+      <div className="space-y-5">
         {/* Security Settings */}
         <Card>
           <CardHeader>
             <div className="flex items-center space-x-2">
-              <ShieldAlert className="h-5 w-5 text-intellilock-black" />
+              <Shield className="h-5 w-5 text-intellilock-black" />
               <CardTitle>Security Settings</CardTitle>
             </div>
             <CardDescription>

@@ -1,29 +1,75 @@
-
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CreditCard, PlusCircle } from "lucide-react";
+import { CreditCard } from "lucide-react";
 import { useApp } from "@/context/AppContext";
 import CardItem from "@/components/cards/CardItem";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/hooks/use-toast";
 
 const CardsList: React.FC = () => {
   const { cards } = useApp();
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleAddCard = () => {
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? cards.length - 1 : prev - 1));
   };
 
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev === cards.length - 1 ? 0 : prev + 1));
+  };
+
+  if (cards.length === 0) {
+    return (
+      <Card className="border-none shadow-md bg-white rounded-2xl mb-6">
+        <CardHeader className="flex flex-row items-center justify-between pb-2">
+          <CardTitle className="text-lg font-semibold text-gray-800">Cards</CardTitle>
+          <CreditCard className="h-5 w-5 text-intellilock-black" />
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-gray-500">No cards found. Add one to get started.</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
-    <Card className="border-none shadow-sm bg-white rounded-xl overflow-hidden mb-6">
-      <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-base font-medium">Cards</CardTitle>
+    <Card className="border-none shadow-md bg-gradient-to-br from-white to-gray-50 rounded-2xl mb-6">
+      <CardHeader className="flex flex-row items-center justify-between pb-1">
+        <CardTitle className="text-lg font-semibold text-gray-800">Cards</CardTitle>
         <CreditCard className="h-5 w-5 text-intellilock-black" />
       </CardHeader>
+
       <CardContent>
-        <div className="grid grid-cols-1 gap-4">
-          {cards.map((card) => (
-            <CardItem key={card.id} card={card} />
-          ))}
+        <div className="relative w-full flex items-center justify-center">
+          {/* Left Button to Navigate to Previous Card */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute left-0 z-10 p-0 rounded-full border-2 border-transparent hover:bg-transparent focus:outline-none"
+            onClick={handlePrev}
+          >
+            <span className="text-3xl text-transparent transition duration-300 ease-in-out">&lt;</span>
+          </Button>
+
+          {/* Active Card Display with Slide Transition */}
+          <div className="w-[100%] sm:w-[500px] overflow-hidden relative">
+            <div className="flex transition-all duration-500 ease-in-out transform" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+              {cards.map((card, index) => (
+                <div className="w-full flex-shrink-0" key={index}>
+                  <CardItem card={card} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Button to Navigate to Next Card */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute right-0 z-10 p-0 rounded-full border-2 border-transparent hover:bg-transparent focus:outline-none"
+            onClick={handleNext}
+          >
+            <span className="text-3xl text-transparent transition duration-300 ease-in-out">&gt;</span>
+          </Button>
         </div>
       </CardContent>
     </Card>

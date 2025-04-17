@@ -11,6 +11,7 @@ import Transactions from "./pages/Transactions";
 import Merchants from "./pages/Merchants";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import AllAlerts from "@/pages/AllAlerts";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
               <Route path="/merchants" element={<Merchants />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/alerts" element={<AllAlerts />} />
             </Routes>
           </BrowserRouter>
         </div>

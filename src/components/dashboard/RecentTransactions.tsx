@@ -18,7 +18,6 @@ const RecentTransactions: React.FC = () => {
   return (
     <Card className="border-none shadow-sm bg-white rounded-xl overflow-hidden mb-6">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-base font-medium">Recent Transactions</CardTitle>
         <button 
           onClick={() => navigate('/transactions')}
           className="text-sm text-intellilock-blue flex items-center"

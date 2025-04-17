@@ -1,23 +1,45 @@
-
 import React, { useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import MerchantItem from "@/components/merchants/MerchantItem";
 import { useApp } from "@/context/AppContext";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { ShoppingBag, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const Merchants: React.FC = () => {
   const { merchants, addMerchantToTrusted } = useApp();
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [newMerchant, setNewMerchant] = useState({ name: "", category: "", isTrusted: true });
+  const [newMerchant, setNewMerchant] = useState({
+    name: "",
+    category: "",
+    isTrusted: true,
+  });
 
   // Sort merchants alphabetically
-  const sortedMerchants = [...merchants].sort((a, b) => a.name.localeCompare(b.name));
+  const sortedMerchants = [...merchants].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   const handleAddMerchant = () => {
     if (newMerchant.name && newMerchant.category) {
@@ -29,10 +51,8 @@ const Merchants: React.FC = () => {
 
   return (
     <MainLayout>
-      <div className="space-y-6">
-        <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Trusted Outlets</h1>
-
+      <main className="space-y-5">
+        <div>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
               <Button>
@@ -49,7 +69,9 @@ const Merchants: React.FC = () => {
 
               <div className="flex flex-col space-y-4 mt-4 text-sm text-gray-700">
                 <div className="space-y-1">
-                  <Label htmlFor="name" className="text-gray-600">Name</Label>
+                  <Label htmlFor="name" className="text-gray-600">
+                    Name
+                  </Label>
                   <Input
                     id="name"
                     value={newMerchant.name}
@@ -62,7 +84,9 @@ const Merchants: React.FC = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <Label htmlFor="category" className="text-gray-600">Category</Label>
+                  <Label htmlFor="category" className="text-gray-600">
+                    Category
+                  </Label>
                   <Select
                     value={newMerchant.category}
                     onValueChange={(value) =>
@@ -73,20 +97,21 @@ const Merchants: React.FC = () => {
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Food & Drink">Food & Drink</SelectItem>
+                      <SelectItem value="Food & Drink">
+                        Food & Drink
+                      </SelectItem>
                       <SelectItem value="Shopping">Shopping</SelectItem>
                       <SelectItem value="Electronics">Electronics</SelectItem>
                       <SelectItem value="Travel">Travel</SelectItem>
-                      <SelectItem value="Entertainment">Entertainment</SelectItem>
+                      <SelectItem value="Entertainment">
+                        Entertainment
+                      </SelectItem>
                       <SelectItem value="Other">Other</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
-                <Button
-                  className="w-full mt-2"
-                  onClick={handleAddMerchant}
-                >
+                <Button className="w-full mt-2" onClick={handleAddMerchant}>
                   Add to Trusted List
                 </Button>
               </div>
@@ -103,18 +128,19 @@ const Merchants: React.FC = () => {
             {sortedMerchants.length > 0 ? (
               <div className="grid gap-4">
                 {sortedMerchants.map((merchant) => (
-                  <MerchantItem 
-                    key={merchant.id} 
-                    merchant={merchant} 
+                  <MerchantItem
+                    key={merchant.id}
+                    merchant={merchant}
                     onAddToTrusted={
-                      merchant.isTrusted 
-                        ? undefined 
-                        : () => addMerchantToTrusted({ 
-                            name: merchant.name, 
-                            category: merchant.category,
-                            isTrusted: true
-                          })
-                    }    
+                      merchant.isTrusted
+                        ? undefined
+                        : () =>
+                            addMerchantToTrusted({
+                              name: merchant.name,
+                              category: merchant.category,
+                              isTrusted: true,
+                            })
+                    }
                   />
                 ))}
               </div>
@@ -125,9 +151,10 @@ const Merchants: React.FC = () => {
             )}
           </CardContent>
         </Card>
-      </div>
+      </main>
     </MainLayout>
   );
 };
 
 export default Merchants;
+
