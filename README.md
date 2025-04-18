@@ -1,12 +1,20 @@
 # IntelliLock App
 
-**Empower Your Finances with Unmatched Security and Control**
+*Empower Your Finances with Unmatched Security and Control*
 
-**Built with the tools and technologies:**
+![Last Commit](https://img.shields.io/github/last-commit/TheOptimisticDev/IntelliLock_App?style=flat-square)
+![TypeScript](https://img.shields.io/github/languages/top/TheOptimisticDev/IntelliLock_App?style=flat-square&color=3178c6)
+![Languages](https://img.shields.io/github/languages/count/TheOptimisticDev/IntelliLock_App?style=flat-square)
 
-- [ ] JSON    [x] npm    [ ] Autoprefixer    [x] PostCSS    [x] JavaScript    [x] React    [x] TypeScript
+*Built with the tools and technologies:*
 
-- [ ] Zod    [x] Vite    [x] ESLint    [x] CSS    [x] datains    [x] React Hook Form
+- ![JSON](https://img.shields.io/badge/JSON-Data-black?style=flat-square&logo=json)
+- ![npm](https://img.shields.io/badge/npm-Package_Manager-CB3837?style=flat-square&logo=npm)
+- ![Vite](https://img.shields.io/badge/Vite-Build_Tool-646CFF?style=flat-square&logo=vite)
+- ![React](https://img.shields.io/badge/React-JS_Framework-61DAFB?style=flat-square&logo=react)
+- ![TypeScript](https://img.shields.io/badge/TypeScript-Language-3178C6?style=flat-square&logo=typescript)
+- ![ESLint](https://img.shields.io/badge/ESLint-Linting-4B32C3?style=flat-square&logo=eslint)
+- ![React Hook Form](https://img.shields.io/badge/React_Hook_Form-Forms-EC5990?style=flat-square&logo=reacthookform)
 
 ---
 
