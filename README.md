@@ -1,9 +1,40 @@
 # IntelliLock App
 
+**Empower Your Finances with Unmatched Security and Control**
+
+**Built with the tools and technologies:**
+
+- [ ] JSON    [x] npm    [ ] Autoprefixer    [x] PostCSS    [x] JavaScript    [x] React    [x] TypeScript
+
+- [ ] Zod    [x] Vite    [x] ESLint    [x] CSS    [x] datains    [x] React Hook Form
+
+---
+
+## Table of Contents
+
+- Overview
+- Getting Started
+- Prerequisites
+- Installation
+- Usage
+- Testing
+
+# Overview
+
 **IntelliLock** is a secure, AI-powered transaction monitoring system designed to detect fraud in real time using risk scoring and location-based verification. It provides enhanced online payment confirmation and a robust alert mechanism to notify users of suspicious activity and automatically lock cards.
 
+## Why IntelliLock_App?
 
-## 🚀 Features
+This project aims to provide a seamless user experience while ensuring robust security features. The core features include:
+
+- ✅ **Vite-based Architecture**: Fast development and build processes, enhancing productivity.
+- 💬 **TypeScript Integration**: Ensures type safety and improved code quality, reducing runtime errors.
+- 💷 **Tailwind CSS Configuration**: Enables a responsive and customizable design system, streamlining UI development.
+- 💸 **Component-based Structure**: Promotes reusability and maintainability, making it easier to manage complex UIs.
+- 📄 **Robust State Management**: Centralized context for user data, transactions, and alerts, enhancing user experience.
+- 📅 **Responsive Design**: Adapts seamlessly to various devices, ensuring accessibility and usability.
+
+## Features
 
 - 🔍 **AI-Powered Fraud Detection**  
   Detects anomalous transactions using intelligent algorithms.
@@ -41,45 +72,45 @@ Pin: 12345
 ℹ️ These credentials are for testing only and should not be used in production environments.
 
 
-## 📁 Project Structure
+# Getting Started
 
-src/
-├── assets/                # Static assets
-├── components/            # UI components
-├── pages/                 # Page-level components
-├── services/              # Transaction & alert services
-├── mockData/              # Mock JSON & testing data
-├── App.tsx                # Main app component
-└── main.tsx               # Entry point
+## Prerequisites
 
+This project requires the following dependencies:
 
-## 🧪 Testing
+- **Programming Language**: TypeScript
+- **Package Manager**: Npm
 
-# Run unit tests
-npm run test
+## Installation
 
+Build IntelliLock_App from the source and install dependencies:
 
-## Future Enhancements
+1. **Clone the repository:**
 
-- Integrate with ML model for adaptive scoring
+> git clone https://github.com/TheOptimisticDev/IntelliLock_App
 
-- Mobile device push notifications
+2. **Navigate to the project directory:**
 
-- Admin dashboard for real-time monitoring
+> cd IntelliLock_App
 
-- Multi-factor authentication (MFA)
+3. **Install the dependencies:**
 
+**Using npm:**
 
-## 📦 Getting Started
+> npm install
 
-### 🔧 Prerequisites
-- Node.js (v18+)
-- npm or yarn
+## Usage
 
-### 🚀 Installation
+Run the project with:
 
-```bash
-git clone https://github.com/yourusername/intellilock_app.git
-cd intellilock_app
-npm install
-npm run dev
+**Using npm:**
+
+> npm start
+
+## Testing
+
+IntelliLock_app uses the {test_framework} test framework. Run the test suite with:
+
+**Using npm:**
+
+> npm test

@@ -1,11 +1,10 @@
-
 import React from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import CardsList from "@/components/dashboard/CardsList";
-import RecentTransactions from "@/components/dashboard/RecentTransactions";
 import StatCard from "@/components/dashboard/StatCard";
 import { Shield, AlertTriangle, CreditCard, ShoppingBag, Bell, Ghost } from "lucide-react";
 import { useApp } from "@/context/AppContext";
+import SmartRecommendations from "@/components/dashboard/SmartRecommendations";
 
 const Dashboard: React.FC = () => {
   const { transactions, alerts, cards } = useApp();
@@ -26,7 +25,8 @@ const Dashboard: React.FC = () => {
 
   return (
     <MainLayout>
-  <main className="space-y-5">
+  <main className="space-y-2">
+    <SmartRecommendations/>
     {/* Stats */}
     <div className="grid grid-cols-2 gap-3">
       <StatCard 

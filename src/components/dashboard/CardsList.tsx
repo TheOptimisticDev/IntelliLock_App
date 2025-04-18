@@ -19,7 +19,7 @@ const CardsList: React.FC = () => {
 
   if (cards.length === 0) {
     return (
-      <Card className="border-none shadow-md bg-white rounded-2xl mb-6">
+      <Card className="border-none shadow-none bg-transparent">
         <CardHeader className="flex flex-row items-center justify-between pb-2">
           <CardTitle className="text-lg font-semibold text-gray-800">Cards</CardTitle>
           <CreditCard className="h-5 w-5 text-intellilock-black" />
@@ -32,7 +32,7 @@ const CardsList: React.FC = () => {
   }
 
   return (
-    <Card className="border-none shadow-md bg-gradient-to-br from-white to-gray-50 rounded-2xl mb-6">
+    <Card className="border-none shadow-none bg-transparent">
       <CardHeader className="flex flex-row items-center justify-between pb-1">
         <CardTitle className="text-lg font-semibold text-gray-800">Cards</CardTitle>
         <CreditCard className="h-5 w-5 text-intellilock-black" />
@@ -40,7 +40,6 @@ const CardsList: React.FC = () => {
 
       <CardContent>
         <div className="relative w-full flex items-center justify-center">
-          {/* Left Button to Navigate to Previous Card */}
           <Button
             variant="ghost"
             size="icon"
@@ -50,18 +49,19 @@ const CardsList: React.FC = () => {
             <span className="text-3xl text-transparent transition duration-300 ease-in-out">&lt;</span>
           </Button>
 
-          {/* Active Card Display with Slide Transition */}
-          <div className="w-[100%] sm:w-[500px] overflow-hidden relative">
-            <div className="flex transition-all duration-500 ease-in-out transform" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-              {cards.map((card, index) => (
-                <div className="w-full flex-shrink-0" key={index}>
-                  <CardItem card={card} />
-                </div>
-              ))}
-            </div>
+          <div className="w-[100%] sm:w-[600px] overflow-hidden relative">
+            <div
+              className="flex transition-all duration-500 ease-in-out transform"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            >
+            {cards.map((card, index) => (
+              <div className="w-full flex-shrink-0" key={index}>
+                <CardItem card={card} />
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Right Button to Navigate to Next Card */}
           <Button
             variant="ghost"
             size="icon"
