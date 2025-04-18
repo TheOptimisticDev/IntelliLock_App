@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MapPin, X } from "lucide-react";
 
 const safetyTips = [
@@ -12,7 +12,8 @@ const safetyTips = [
 const LocationInsights: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const [location, setLocation] = useState("Johannesburg");
+  const [location, setLocation] = useState("Johannesburg, Soweto.");
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,6 +21,23 @@ const LocationInsights: React.FC = () => {
     }, 6000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        showModal &&
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setShowModal(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showModal]);
 
   const toggleModal = () => setShowModal(!showModal);
 
@@ -53,25 +71,37 @@ const LocationInsights: React.FC = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="bg-white rounded-xl shadow-xl w-[95%] max-w-md p-6 relative">
-            <button
-              onClick={toggleModal}
-              className="absolute top-4 right-4 text-gray-600 hover:text-gray-800"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <h4 className="text-lg font-semibold mb-4">{location}</h4>
-            <div className="w-full h-64 bg-gray-200 flex items-center justify-center text-gray-600 text-sm rounded-md">
-              {location}
-            </div>
-          </div>
-        </div>
-      )}
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
+    <div
+      ref={modalRef}
+      className="bg-white rounded-xl shadow-xl w-[95%] max-w-md p-6 relative"
+    >
+      <button
+        onClick={toggleModal}
+        className="absolute top-4 right-4 text-gray-600 hover:text-gray-800"
+      >
+        <X className="w-5 h-5" />
+      </button>
+      <h4 className="text-lg font-semibold mb-4">{location}</h4>
+
+      {/* Image */}
+      <img
+        src="/public/mock-map.PNG"
+        alt="Location map"
+        className="w-full h-48 object-cover rounded-md mb-4"
+      />
+
+      {/* Description */}
+      <div className="text-sm text-gray-600">
+        This is your current location, 
+        used by IntelliLock to enhance and provide tailored 
+        safety recommendations.
+      </div>
+    </div>
+  </div>
+)}
     </>
   );
 };
 
 export default LocationInsights;
-
-

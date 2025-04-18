@@ -1,22 +1,28 @@
-
 import React from "react";
-import { Shield, Lock } from "lucide-react";
 
 interface LogoProps {
   className?: string;
   compact?: boolean;
+  textColor?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ className, compact = false }) => {
+const Logo: React.FC<LogoProps> = ({ 
+  className, 
+  compact = false,
+  textColor = "text-intellilock-black"
+}) => {
   return (
-    <div className={`flex items-center space-x-1.5 ${className}`}>
-      <div className="relative">
-        <Shield className="w-6 h-6 text-intellilock-black" />
-        <Lock className="w-3 h-3 text-intellilock-skyblack absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-      </div>
-      {!compact && (
-        <span className="font-bold text-base text-intellilock-black">IntelliLock</span>
-      )}
+    <div className={`flex items-center space-x-2 ${className}`}>
+      {/* Logo image from public folder */}
+      <img 
+        src="/logo.png" 
+        alt="IntelliLock Logo"
+        className={`
+          object-contain 
+          rounded-lg
+          ${compact ? 'h-10 w-10' : 'h-12 w-auto max-w-[180px]'}
+        `}
+      />
     </div>
   );
 };
