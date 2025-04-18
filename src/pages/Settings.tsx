@@ -124,7 +124,6 @@ const Settings: React.FC = () => {
                   <option>30 Seconds</option>
                   <option>45 Seconds</option>
                   <option>1 Minute</option>
-                  <option>1 Minute 15 Seconds</option>
                 </select>
               </div>
             </div>
