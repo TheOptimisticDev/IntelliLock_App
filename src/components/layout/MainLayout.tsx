@@ -537,7 +537,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
             onClick={() => setShowSearch(false)}
           />
 
-          <div className="absolute top-0 left-0 right-0 bg-white shadow-xl rounded-b-2xl max-h-[85vh] overflow-hidden animate-in slide-in-from-top duration-300 md:max-w-md md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-2xl md:max-h-[80vh]">
+          <div className="absolute top-0 left-0 right-0 bg-white shadow-xl rounded-b-m max-h-[85vh] overflow-hidden animate-in slide-in-from-top duration-300 md:max-w-md md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-2xl md:max-h-[80vh]">
             <div className="relative p-4 border-b sticky top-0 bg-white z-10">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
               <input
