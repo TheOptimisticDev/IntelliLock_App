@@ -61,7 +61,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
   const getPageTitle = () => {
     const path = location.pathname;
     if (path.startsWith("/transactions")) return "Wallet";
-    if (path.startsWith("/merchants")) return "Trusted Outlets";
+    if (path.startsWith("/merchants")) return "Outlets";
     if (path.startsWith("/settings")) return "Settings";
     if (path.startsWith("/alerts")) return "Notifications";
     return title || "IntelliLock";
@@ -223,7 +223,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
               >
                 <Bell className="h-5 w-5 md:h-6 md:w-6 text-gray-900" />
                 {unreadAlertsCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-intellilock-red text-white text-xs rounded-full h-4 w-4 md:h-5 md:w-5 flex items-center justify-center font-bold">
+                  <span className="absolute top-1 -right-0 bg-intellilock-red text-white text-xs rounded-full h-4 w-4 md:h-5 md:w-5 flex items-center justify-center font-bold">
                     {unreadAlertsCount}
                   </span>
                 )}
@@ -255,7 +255,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, title }) => {
 
       {/* Bottom Navigation */}
       <nav className="bg-white/90 backdrop-blur-sm shadow-lg fixed bottom-0 left-0 right-0 h-14 md:h-16 border-t z-10">
-        <div className="grid grid-cols-4 h-full max-w-6xl mx-auto">
+        <div className="grid grid-cols-4 pb-3 h-full max-w-6xl mx-auto">
           {navigation.map((item) => {
             const isActive = location.pathname.startsWith(item.path);
             return (
