@@ -82,20 +82,17 @@
 ## 📱 App Screenshots
 
 <div style="display: flex; justify-content: space-around; gap: 10px;">
-  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/loading-screen.png?raw=true" alt="Loading Screen" style="width: 30%; max-width: 200px;">
-  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/login-screen.png?raw=true" alt="Login Screen" style="width: 30%; max-width: 200px;">
-  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/onboarding-screen.png?raw=true" alt="Onboarding Screen" style="width: 30%; max-width: 200px;">
+  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/loading-screen.png?raw=true" alt="Loading Screen" style="width: 22%; max-width: 200px;">
+  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/login-screen.png?raw=true" alt="Login Screen" style="width: 22%; max-width: 200px;">
+  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/onboarding-screen.png?raw=true" alt="Onboarding Screen" style="width: 22%; max-width: 200px;">
+  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/home-screen.png?raw=true" alt="Home Screen" style="width: 22%; max-width: 200px;">
 </div>
 
 <div style="display: flex; justify-content: space-around; gap: 10px;">
-  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/home-screen.png?raw=true" alt="Home Screen" style="width: 30%; max-width: 200px;">
-  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/wallet-screen.png?raw=true" alt="Wallet Screen" style="width: 30%; max-width: 200px;">
-  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/outlets-screen.png?raw=true" alt="Outlets Screen" style="width: 30%; max-width: 200px;">
-</div>
-
-<div style="display: flex; justify-content: space-around; gap: 10px;">
-  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/subscription-screen.png?raw=true" alt="Subscription Screen" style="width: 30%; max-width: 200px;">
-  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/settings-screen.png?raw=true" alt="Settings Screen" style="width: 30%; max-width: 200px;">
+  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/wallet-screen.png?raw=true" alt="Wallet Screen" style="width: 22%; max-width: 200px;">
+  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/outlets-screen.png?raw=true" alt="Outlets Screen" style="width: 22%; max-width: 200px;">
+  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/subscription-screen.png?raw=true" alt="Subscription Screen" style="width: 22%; max-width: 200px;">
+  <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/settings-screen.png?raw=true" alt="Settings Screen" style="width: 22%; max-width: 200px;">
 </div>
 
 ---
