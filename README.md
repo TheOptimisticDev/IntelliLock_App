@@ -81,48 +81,37 @@
 
 ## 📱 App Screenshots
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-
-<div style="text-align: center;">
-  <img src="/screenshot/loading-screen.png" alt="Loading Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
-  <p style="margin-top: 0.5rem; font-weight: 500;">Loading State</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 10px;">
+  <div style="flex: 1 1 calc(33% - 10px);">
+    <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/screenshot/loading-screen.png?raw=true" alt="Loading Screen" style="width: 100%;">
+  </div>
+  <div style="flex: 1 1 calc(33% - 10px);">
+    <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/screenshot/login-screen.png?raw=true" alt="Login Screen" style="width: 100%;">
+  </div>
+  <div style="flex: 1 1 calc(33% - 10px);">
+    <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/screenshot/onboarding-screen.png?raw=true" alt="Onboarding Screen" style="width: 100%;">
+  </div>
 </div>
 
-<div style="text-align: center;">
-  <img src="/screenshot/login-screen.png" alt="Login Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
-  <p style="margin-top: 0.5rem; font-weight: 500;">Login Screen</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 10px;">
+  <div style="flex: 1 1 calc(33% - 10px);">
+    <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/screenshot/home-screen.png?raw=true" alt="Home Screen" style="width: 100%;">
+  </div>
+  <div style="flex: 1 1 calc(33% - 10px);">
+    <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/screenshot/wallet-screen.png?raw=true" alt="Wallet Screen" style="width: 100%;">
+  </div>
+  <div style="flex: 1 1 calc(33% - 10px);">
+    <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/screenshot/outlets-screen.png?raw=true" alt="Outlets Screen" style="width: 100%;">
+  </div>
 </div>
 
-<div style="text-align: center;">
-  <img src="/screenshot/onboarding-screen.png" alt="Onboarding Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
-  <p style="margin-top: 0.5rem; font-weight: 500;">Onboarding</p>
-</div>
-
-<div style="text-align: center;">
-  <img src="/screenshot/home-screen.png" alt="Home Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
-  <p style="margin-top: 0.5rem; font-weight: 500;">Home Dashboard</p>
-</div>
-
-<div style="text-align: center;">
-  <img src="/screenshot/wallet-screen.png" alt="Wallet Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
-  <p style="margin-top: 0.5rem; font-weight: 500;">Wallet Management</p>
-</div>
-
-<div style="text-align: center;">
-  <img src="/screenshot/outlets-screen.png" alt="Outlets Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
-  <p style="margin-top: 0.5rem; font-weight: 500;">Trusted Outlets</p>
-</div>
-
-<div style="text-align: center;">
-  <img src="/screenshot/subscription-screen.png" alt="Subscription Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
-  <p style="margin-top: 0.5rem; font-weight: 500;">Subscription</p>
-</div>
-
-<div style="text-align: center;">
-  <img src="/screenshot/settings-screen.png" alt="Settings Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
-  <p style="margin-top: 0.5rem; font-weight: 500;">Settings</p>
-</div>
-
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 10px;">
+  <div style="flex: 1 1 calc(33% - 10px);">
+    <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/screenshot/subscription-screen.png?raw=true" alt="Subscription Screen" style="width: 100%;">
+  </div>
+  <div style="flex: 1 1 calc(33% - 10px);">
+    <img src="https://github.com/TheOptimisticDev/IntelliLock_App/blob/main/public/screenshot/settings-screen.png?raw=true" alt="Settings Screen" style="width: 100%;">
+  </div>
 </div>
 
 ---
