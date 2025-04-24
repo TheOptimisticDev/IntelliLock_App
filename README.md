@@ -27,6 +27,7 @@
 ## 📚 Table of Contents
 - [Overview](#-overview)
 - [Key Features](#-key-features)
+- [App Screenshots](#-app-screenshots)
 - [Tech Stack](#-tech-stack)
 - [Getting Started](#-getting-started)
   - [Prerequisites](#-prerequisites)
@@ -76,6 +77,56 @@
 
 </div>
 
+---
+
+## 📱 App Screenshots
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+
+<div style="text-align: center;">
+  <img src="/screenshot/loading-screen.png" alt="Loading Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
+  <p style="margin-top: 0.5rem; font-weight: 500;">Loading State</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="/screenshot/login-screen.png" alt="Login Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
+  <p style="margin-top: 0.5rem; font-weight: 500;">Login Screen</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="/screenshot/onboarding-screen.png" alt="Onboarding Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
+  <p style="margin-top: 0.5rem; font-weight: 500;">Onboarding</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="/screenshot/home-screen.png" alt="Home Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
+  <p style="margin-top: 0.5rem; font-weight: 500;">Home Dashboard</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="/screenshot/wallet-screen.png" alt="Wallet Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
+  <p style="margin-top: 0.5rem; font-weight: 500;">Wallet Management</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="/screenshot/outlets-screen.png" alt="Outlets Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
+  <p style="margin-top: 0.5rem; font-weight: 500;">Trusted Outlets</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="/screenshot/subscription-screen.png" alt="Subscription Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
+  <p style="margin-top: 0.5rem; font-weight: 500;">Subscription</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="/screenshot/settings-screen.png" alt="Settings Screen" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
+  <p style="margin-top: 0.5rem; font-weight: 500;">Settings</p>
+</div>
+
+</div>
+
+---
+
 ## 💻 Tech Stack
 
 - **Frontend:** React (TypeScript, Vite, TailwindCSS)
@@ -84,14 +135,12 @@
 - **Location Services:** HTML5 Geolocation / Map APIs
 - **Notification:** Toasts, push or email integration
 
-
 ### 🔐 Mock Authentication Data
 Use the following credentials to log in during development:
 
 Pin: 12345
 
 ℹ️ These credentials are for testing only and should not be used in production environments.
-
 
 # Getting Started
 
